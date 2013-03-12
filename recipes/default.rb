@@ -71,4 +71,16 @@ when "debian", "ubuntu"
   service "supervisor" do
     action [:enable, :start]
   end
+when "redhat", "suse"
+  template "/etc/init.d/supervisor" do
+    source "supervisor.init.erb"
+    owner "root"
+    group "root"
+    mode "755"
+  end
+
+  service "supervisor" do
+    action [:enable, :start]
+  end
+
 end
