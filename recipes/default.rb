@@ -19,10 +19,10 @@
 
 include_recipe "python"
 
-python_pip "supervisor" do
-  action :upgrade
-  version node['supervisor']['version'] if node['supervisor']['version']
-end
+#python_pip "supervisor" do
+#  action :upgrade
+#  version node['supervisor']['version'] if node['supervisor']['version']
+#end
 
 directory node['supervisor']['dir'] do
   owner "root"
