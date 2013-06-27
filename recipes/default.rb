@@ -52,8 +52,8 @@ directory node['supervisor']['log_dir'] do
   recursive true
 end
 
-case node['platform']
-when "debian", "ubuntu"
+case platform_family
+when "debian"
   template "/etc/init.d/supervisor" do
     source "supervisor.init.erb"
     owner "root"
@@ -71,7 +71,7 @@ when "debian", "ubuntu"
   service "supervisor" do
     action [:enable, :start]
   end
-when "redhat", "suse"
+when "rhel", "suse"
   template "/etc/init.d/supervisor" do
     source "supervisor.init.erb"
     owner "root"
