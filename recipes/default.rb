@@ -71,7 +71,7 @@ when "debian"
   service "supervisor" do
     action [:enable, :start]
   end
-when "rhel", "suse"
+when "centos", "rhel", "suse"
   template "/etc/init.d/supervisor" do
     source "supervisor.init.erb"
     owner "root"
