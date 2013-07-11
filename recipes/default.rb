@@ -20,7 +20,6 @@
 include_recipe "python"
 
 python_pip "supervisor" do
-  action :upgrade
   version node['supervisor']['version'] if node['supervisor']['version']
 end
 
